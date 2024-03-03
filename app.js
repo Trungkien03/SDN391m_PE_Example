@@ -27,4 +27,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// Xử lý yêu cầu không hợp lệ và trả về trang 404
+app.use((req, res, next) => {
+  res.status(404).render('404', { title: 'Page Not Found' });
+});
+
 module.exports = app;
