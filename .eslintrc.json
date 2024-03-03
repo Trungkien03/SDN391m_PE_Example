@@ -1,0 +1,51 @@
+{
+  "extends": ["airbnb", "prettier", "plugin:node/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "singleQuote": true
+      }
+    ],
+    "spaced-comment": "warn",
+    "no-console": "off",
+    "consistent-return": "warn",
+    "func-names": "warn",
+    "no-process-exit": "warn",
+    "no-var": "error",
+    "no-case-declarations": "off",
+    "no-param-reassign": "off",
+    "prefer-destructuring": [
+      "error",
+      {
+        "object": true,
+        "array": false
+      }
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "req|res|next|val"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "eslint-plugin-import/prefer-default-export": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "type": "module",
+    "typeParsing": "script"
+  }
+}
