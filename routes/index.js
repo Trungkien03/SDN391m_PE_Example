@@ -1,10 +1,12 @@
 const express = require('express');
 const memberRouter = require('./members');
 const viewRouters = require('./views');
+const sectionRouter = require('./sections');
 
 const router = express.Router();
 
-router.use('/member', memberRouter);
 router.use('/view', viewRouters);
+router.use('/member', memberRouter);
+router.use('/section', sectionRouter);
 
 module.exports = router;
