@@ -79,7 +79,7 @@ const logout = catchAsync(async (req, res, next) => {
   console.log(decoded);
 
   res.cookie('jwt', '', { expires: new Date(0), httpOnly: true });
-  res.status(200).render('authentication/signIn', { message: 'Logout Successfully!' });
+  res.status(200).render('authentication/signIn', { message: 'Logout Successfully!', title: 'Sign In Page' });
 });
 
 module.exports = { signUp, signIn, logout };
