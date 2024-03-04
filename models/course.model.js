@@ -4,20 +4,20 @@ const courseSchema = new mongoose.Schema(
   {
     courseName: {
       type: String,
-      require: true,
+      required: true,
     },
     courseImage: {
       type: String,
-      require: true,
+      required: true,
     },
     courseDescription: {
       type: String,
-      require: true,
+      required: true,
     },
   },
   { timestamps: true },
 );
 
-const course = mongoose.model('Course', courseSchema);
+const course = mongoose.model('Courses', courseSchema);
 
 module.exports = course;

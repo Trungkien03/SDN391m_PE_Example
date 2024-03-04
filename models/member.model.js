@@ -4,24 +4,24 @@ const memberSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      require: true,
+      required: true,
     },
     fullName: {
       type: String,
-      require: true,
+      required: true,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
     imageUrl: {
       type: String,
-      require: true,
+      required: true,
     },
   },
   { timestamps: true },
 );
 
-const member = mongoose.model('Member', memberSchema);
+const member = mongoose.model('Members', memberSchema);
 
 module.exports = member;

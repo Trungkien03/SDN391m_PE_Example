@@ -11,7 +11,7 @@
     ],
     "spaced-comment": "warn",
     "no-console": "off",
-    "consistent-return": "warn",
+    "consistent-return": "off",
     "func-names": "warn",
     "no-process-exit": "warn",
     "no-var": "error",
