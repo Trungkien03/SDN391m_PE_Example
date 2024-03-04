@@ -45,7 +45,6 @@
     "node": true
   },
   "parserOptions": {
-    "type": "module",
-    "typeParsing": "script"
+    "type": "module"
   }
 }
