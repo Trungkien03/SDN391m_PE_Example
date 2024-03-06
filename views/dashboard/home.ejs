@@ -1,292 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include('../components/header') %>
+  <%- include('../components/header') %>
 </head>
 
 <body>
-    <div class="container-xxl position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+  <div class="container-xxl position-relative bg-white d-flex p-0">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Sidebar Start -->
+    <div class="sidebar pe-4 pb-3">
+      <nav class="navbar bg-light navbar-light">
+        <a href="index.html" class="navbar-brand mx-4 mb-3">
+          <h3 class="text-primary"><i class="bi bi-house-gear-fill me-2"></i>DASHMIN</h3>
+        </a>
+        <div class="navbar-nav w-100">
+          <a href="/view/dashboard" class="nav-item nav-link active"><i class="fa fa-home me-2" aria-hidden="true"></i> Dashboard</a>
+          <div class="nav-item dropdown">
+            <a href="/view/dashboard/courses" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i> Courses</a>
+          </div>
         </div>
-        <!-- Spinner End -->
+      </nav>
+    </div>
+    <!-- Sidebar End -->
 
 
-        <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="bi bi-house-gear-fill me-2"></i>DASHMIN</h3>
-                </a>
-                <div class="navbar-nav w-100">
-                    <a href="/view/dashboard" class="nav-item nav-link active"><i class="fa fa-home me-2" aria-hidden="true"></i> Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="/view/dashboard/courses" class="nav-item nav-link" ><i class="fa fa-laptop me-2"></i> Courses</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <!-- Sidebar End -->
+    <!-- Content Start -->
+    <div class="content">
+      <!-- Navbar Start -->
+      <nav class=" justify-content-between navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+          <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+          <i class="fa fa-bars"></i>
+        </a>
+        <form class="d-none d-md-flex ms-4 w-75">
+          <input class="form-control border-0 w-100" type="search" placeholder="Search">
+        </form>
+        <div class="navbar-nav align-items-center ms-auto">
 
 
-        <!-- Content Start -->
-        <div class="content">
-            <!-- Navbar Start -->
-            <nav class=" justify-content-between navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-                </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <form class="d-none d-md-flex ms-4 w-75">
-                    <input class="form-control border-0 w-100" type="search" placeholder="Search">
-                </form>
-                <div class="navbar-nav align-items-center ms-auto">
-                    
-                    
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="https://scontent.fhan3-1.fna.fbcdn.net/v/t39.30808-6/273280810_3317577035194696_6778832758339916691_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFOGuvJUZQAhZ9HpuX9vN7iTXzBYCKd98VNfMFgIp33xYacfQASpG-KhZ0cAbKLt7KAfIVim6CVX-dVgIKhCcx3&_nc_ohc=dZbg9IWFPOEAX9rEnFH&_nc_ht=scontent.fhan3-1.fna&oh=00_AfCyra36p8EC83gOvingtRuwBjsyje4EePafrkxYvXXDlA&oe=65EA4AD7" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Nguyen Trung Kien</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="/member/logout" class="dropdown-item">Log Out</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <!-- Navbar End -->
-
-            
-
-
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Users</p>
-                                <h6 class="mb-0"><%= memberLength  %></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Courses</p>
-                                <h6 class="mb-0"><%= courseLength %></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Sections</p>
-                                <h6 class="mb-0"><%= sectionLength %></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+              <img class="rounded-circle me-lg-2" src="https://scontent.fhan3-1.fna.fbcdn.net/v/t39.30808-6/273280810_3317577035194696_6778832758339916691_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFOGuvJUZQAhZ9HpuX9vN7iTXzBYCKd98VNfMFgIp33xYacfQASpG-KhZ0cAbKLt7KAfIVim6CVX-dVgIKhCcx3&_nc_ohc=dZbg9IWFPOEAX9rEnFH&_nc_ht=scontent.fhan3-1.fna&oh=00_AfCyra36p8EC83gOvingtRuwBjsyje4EePafrkxYvXXDlA&oe=65EA4AD7" alt="" style="width: 40px; height: 40px;">
+              <span class="d-none d-lg-inline-flex">Nguyen Trung Kien</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+              <a href="/member/logout" class="dropdown-item">Log Out</a>
             </div>
-            <!-- Sale & Revenue End -->
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar End -->
 
 
-            <!-- Create Sections -->
 
 
-            <div class="modal fade" id="createSection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Add New Section</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <form method="post" action="/course/create">
-        
-                      <div class="modal-body">
-                        <div class="form-group">
-                          <label for="sectionName">Section Name</label>
-                          <input type="text" class="form-control" name="courseName" placeholder="Enter Name" required>
-                        </div>
-                        <div class="form-group">
-                          <label for="sectionDescription">Section Description</label>
-                          <textarea name="courseDescription" class="form-control" id="exampleFormControlTextarea1" rows="4" required placeholder="Enter Description"></textarea>
-                        </div>
-                        <div class="form-group">
-                          <label for="sectionName">Section Duration</label>
-                          <input type="number" class="form-control" name="courseImage" placeholder="Input Duration" required>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
-                      </div>
-                    </form>
-        
-                  </div>
+      <!-- Sale & Revenue Start -->
+      <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <i class="fa fa-chart-line fa-3x text-primary"></i>
+              <div class="ms-3">
+                <p class="mb-2">Total Users</p>
+                <h6 class="mb-0"><%= memberLength  %></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <i class="fa fa-chart-bar fa-3x text-primary"></i>
+              <div class="ms-3">
+                <p class="mb-2">Total Courses</p>
+                <h6 class="mb-0"><%= courseLength %></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <i class="fa fa-chart-area fa-3x text-primary"></i>
+              <div class="ms-3">
+                <p class="mb-2">Total Sections</p>
+                <h6 class="mb-0"><%= sectionLength %></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sale & Revenue End -->
+
+
+      <!-- Create Sections -->
+
+
+      <div class="modal fade" id="createSection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add New Section</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form method="post" action="/section/create">
+
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="sectionName">Section Name</label>
+                  <input type="text" class="form-control" name="sectionName" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="sectionDescription">Section Description</label>
+                  <textarea name="sectionDescription" class="form-control" id="exampleFormControlTextarea1" rows="4" required placeholder="Enter Description"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="duration">Section Duration</label>
+                  <input type="number" class="form-control" name="duration" placeholder="Input Duration" required>
+                </div>
+              </div>
+              <div class="form-group p-3">
+                <label for="sectionName">Section Course</label>
+                <select name="course" class="form-control" required>
+                  <% courses.forEach(course => { %>
+                  <option value="<%= course._id %>"><%= course.courseName %></option>
+                  <% }); %>
+                </select>
+              </div>
+              <div class="form-group p-3">
+                <div class="custom-control custom-checkbox ">
+                  <input name="isMainTask" type="checkbox" class="custom-control-input" id="customCheckDisabled1">
+                  <label class="custom-control-label" for="customCheckDisabled1">Is Main Task</label>
                 </div>
               </div>
 
-             <!-- Recent Sales Start -->
-             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <div style="display: flex; justify-content: space-around; align-items: center;">
-                          <h6 class="mb-0">List of Sections</h6>
-                          <button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createSection">
-                            <i class="fa fa-plus-square" aria-hidden="true"></i> Add Section
-                          </button>
-                        </div>
-                        <a href="">Show All</a>
-                      </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <% if (typeof messageFail !== 'undefined') { %>
-                                <p style="color: brown;"><%= messageFail %></p>
-                              <% } %>
 
-                              <% if (typeof messageSuccess !== 'undefined') { %>
-                                <p style="color: green;"><%= messageSuccess %></p>
-                              <% } %>
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col">Section Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Duration</th>
-                                    <th scope="col">isMainTask</th>
-                                    <th scope="col">Course</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% sections.forEach((section, index) => { %>
-                                    <tr>
-                                        <td><%= section.sectionName %></td>
-                                        <td><%= section.sectionDescription %></td>
-                                        <td><%= section.duration %></td>
-                                        <td><%= section.isMainTask ? 'Yes' : 'No' %></td>
-                                        <td><%= section.course.courseName %></td>
-                                        <td style="display: flex; justify-content: space-between;">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= index %>modify"><i class="bi bi-eye-fill"></i></button>
-                                            <button type="button" class="btn btn-danger" data-target="#<%= index %>delete" data-toggle="modal" data-target="#exampleModal">
-                                            <i class="bi bi-trash2-fill"></i>
-                                              </button>
-                                        </td>
-                                    </tr>
-                                
-                                    <!-- For Modify -->
-                                    <div class="modal fade bd-example-modal-lg" id="<%= index %>modify" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                          <div class="modal-content">
-                                            <div>   
-                                                <h3>Information</h3>
-                                            </div>
-                                            <div class="p-5 w-100 m-3" style="display: flex; justify-content: space-between;">
-                                                <div style="display: flex; justify-content: center; align-items: center;">
-                                                    <div class="card" style="width: 18rem;">
-                                                        <img class="card-img-top" src="<%= section.course.courseImage %>" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title"><%= section.course.courseName %></h5>
-                                                            <p class="card-text"><%= section.course.courseDescription %></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="w-100 p-4">
-                                                    <h4>Section</h4>
-                                                    <form method="post" action="/section/update" >
-                                                        <input name="sectionId" type="hidden" value="<%= section._id %>">
-                                                        <div class="form-group">
-                                                          <label  for="sectionName">Section Name</label>
-                                                          <input type="text" value="<%= section.sectionName %>" class="form-control" name="sectionName" placeholder="Enter section name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                          <label for="sectionDescription">Section Description</label>
-                                                          <textarea name="sectionDescription" class="form-control" id="exampleFormControlTextarea1" rows="4"><%= section.sectionDescription %></textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label  for="sectionName">Section Duration</label>
-                                                            <input type="number" value="<%= section.duration %>" class="form-control" name="duration" placeholder="Enter duration">
-                                                        </div>
-                                                        
-                                                        <select name="course" class="form-control mt-3 mb-3">
-                                                            <% courses.forEach(course => { %>
-                                                                <option <% if (section.course._id.toString() === course._id.toString()) { %> selected <% } %> value="<%= course._id %>"><%= course.courseName %></option>
-                                                            <% }); %>
-                                                        </select>                                                    
-                                                        <button type="submit" class="btn btn-primary">Update Section</button>
-                                                      </form>
-                                                </div>
-                                            </div>                                            
-                                          </div>
-                                        </div>
-                                      </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
 
 
+            </form>
 
-                                      <!-- for Delete -->
-                                      <div class="modal fade" id="<%= index %>delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel">Delete Section</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                              <h6>Confirm Delete Section <%= section.sectionName %></h6>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                              <button type="button" class="btn btn-primary">Yes</button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                <% }); %>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer End -->
+          </div>
         </div>
-        <!-- Content End -->
+      </div>
+
+      <!-- Recent Sales Start -->
+      <div class="container-fluid pt-4 px-4">
+        <div class="bg-light text-center rounded p-4">
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <div style="display: flex; justify-content: space-around; align-items: center;">
+              <h6 class="mb-0">List of Sections</h6>
+              <button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createSection">
+                <i class="fa fa-plus-square" aria-hidden="true"></i> Add Section
+              </button>
+            </div>
+            <a href="">Show All</a>
+          </div>
+          <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+              <% if (typeof messageFail !== 'undefined') { %>
+              <p style="color: brown;"><%= messageFail %></p>
+              <% } %>
+
+              <% if (typeof messageSuccess !== 'undefined') { %>
+              <p style="color: green;"><%= messageSuccess %></p>
+              <% } %>
+              <thead>
+                <tr class="text-dark">
+                  <th scope="col">Section Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">isMainTask</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% sections.forEach((section, index) => { %>
+                <tr>
+                  <td><%= section.sectionName %></td>
+                  <td><%= section.sectionDescription %></td>
+                  <td><%= section.duration %></td>
+                  <td><%= section.isMainTask ? 'Yes' : 'No' %></td>
+                  <td><%= section.course.courseName %></td>
+                  <td style="display: flex; justify-content: space-between;">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= index %>modify"><i class="bi bi-eye-fill"></i></button>
+                    <button type="button" class="btn btn-danger" data-target="#<%= index %>delete" data-toggle="modal" data-target="#exampleModal">
+                      <i class="bi bi-trash2-fill"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- For Modify -->
+                <div class="modal fade bd-example-modal-lg" id="<%= index %>modify" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div>
+                        <h3>Information</h3>
+                      </div>
+                      <div class="p-5 w-100 m-3" style="display: flex; justify-content: space-between;">
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                          <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="<%= section.course.courseImage %>" alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= section.course.courseName %></h5>
+                              <p class="card-text"><%= section.course.courseDescription %></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="w-100 p-4">
+                          <h4>Section</h4>
+                          <form method="post" action="/section/update">
+                            <input name="sectionId" type="hidden" value="<%= section._id %>">
+                            <div class="form-group">
+                              <label for="sectionName">Section Name</label>
+                              <input type="text" value="<%= section.sectionName %>" class="form-control" name="sectionName" placeholder="Enter section name">
+                            </div>
+                            <div class="form-group">
+                              <label for="sectionDescription">Section Description</label>
+                              <textarea name="sectionDescription" class="form-control" id="exampleFormControlTextarea1" rows="4"><%= section.sectionDescription %></textarea>
+                            </div>
+                            <div class="form-group">
+                              <label for="sectionName">Section Duration</label>
+                              <input type="number" value="<%= section.duration %>" class="form-control" name="duration" placeholder="Enter duration">
+                            </div>
+
+                            <select name="course" class="form-control mt-3 mb-3">
+                              <% courses.forEach(course => { %>
+                              <option <% if (section.course._id.toString() === course._id.toString()) { %> selected <% } %> value="<%= course._id %>"><%= course.courseName %></option>
+                              <% }); %>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Update Section</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+                <!-- for Delete -->
+                <div class="modal fade" id="<%= index %>delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Section</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <h6>Confirm Delete Section <%= section.sectionName %></h6>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-primary">Yes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% }); %>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Start -->
+      <div class="container-fluid pt-4 px-4">
+        <div class="bg-light rounded-top p-4">
+          <div class="row">
+            <div class="col-12 col-sm-6 text-center text-sm-start">
+              &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+            </div>
+            <div class="col-12 col-sm-6 text-center text-sm-end">
+              <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+              Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+              </br>
+              Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
     </div>
+    <!-- Content End -->
 
-    <%- include('../components/footer') %>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+  </div>
+
+  <%- include('../components/footer') %>
 
 </body>
 

@@ -73,10 +73,12 @@ const logout = catchAsync(async (req, res, next) => {
   if (!token) {
     return res.redirect('/view/signIn');
   }
-
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-  console.log(decoded);
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    res.cookie('jwt', '');
+    return res.redirect('/view/signIn');
+  }
 
   res.cookie('jwt', '', { expires: new Date(0), httpOnly: true });
   res.status(200).render('authentication/signIn', { message: 'Logout Successfully!', title: 'Sign In Page' });

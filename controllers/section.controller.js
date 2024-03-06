@@ -47,7 +47,9 @@ const updateSection = catchAsync(async (req, res, next) => {
 });
 
 const createSection = catchAsync(async (req, res, next) => {
-  const { sectionId, sectionName, sectionDescription, duration, course: courseId } = req.body;
+  const { sectionName, sectionDescription, duration, course: courseId, isMainTask } = req.body;
+
+  console.log(isMainTask);
 
   const renderData = {};
   const courses = await course.find({});
@@ -60,16 +62,12 @@ const createSection = catchAsync(async (req, res, next) => {
   renderData.sectionLength = sections.length;
   renderData.memberLength = users.length;
 
-  if (!sectionId || !sectionName || !sectionDescription || !duration || !courseId) {
-    renderData.messageFail = 'Missing required fields';
-    return res.status(400).render('dashboard/home', renderData);
-  }
-
   await section.create({
     sectionName,
     sectionDescription,
     duration,
-    course,
+    isMainTask: !!isMainTask,
+    course: courseId,
   });
 
   const updatedCourses = await course.find({});

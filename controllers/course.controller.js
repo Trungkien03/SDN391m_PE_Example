@@ -1,5 +1,6 @@
 const catchAsync = require('../utils/catchAsync');
 const course = require('../models/course.model');
+const section = require('../models/section.model');
 
 const createCourse = catchAsync(async (req, res, next) => {
   const { courseName, courseDescription, courseImage } = req.body;
@@ -59,6 +60,8 @@ const deleteCourse = catchAsync(async (req, res, next) => {
   }
 
   await course.findByIdAndDelete(courseId);
+
+  await section.deleteMany({ course: courseId });
 
   const updatedCourses = await course.find({});
   renderData.courses = updatedCourses;

@@ -1,8 +1,9 @@
 const express = require('express');
-const { updateSection } = require('../../controllers/section.controller');
+const { updateSection, createSection } = require('../../controllers/section.controller');
 
 const sectionRouter = express.Router();
 
 sectionRouter.post('/update', updateSection);
+sectionRouter.post('/create', createSection);
 
 module.exports = sectionRouter;
