@@ -11,7 +11,7 @@ const viewSignIn = (req, res, next) => {
   res.status(200).render('authentication/signIn', { title: 'Sign In Page' });
 };
 
-const viewDashboard = async (req, res, next) => {
+const viewDashboard = catchAsync(async (req, res, next) => {
   if (!req.cookies || !req.cookies.jwt) {
     return res.redirect('/view/signIn');
   }
@@ -29,6 +29,26 @@ const viewDashboard = async (req, res, next) => {
   };
 
   res.status(200).render('dashboard/home', renderData);
-};
+});
 
-module.exports = { viewSignUp, viewSignIn, viewDashboard };
+const viewCourses = catchAsync(async (req, res, next) => {
+  if (!req.cookies || !req.cookies.jwt) {
+    return res.redirect('/view/signIn');
+  }
+  const courses = await course.find({});
+  const users = await member.find({});
+  const sections = await section.find({}).populate({ path: 'course' }).exec();
+
+  const renderData = {
+    title: 'Courses',
+    sections,
+    courses,
+    courseLength: courses.length,
+    sectionLength: sections.length,
+    memberLength: users.length,
+  };
+
+  res.status(200).render('dashboard/courses', renderData);
+});
+
+module.exports = { viewSignUp, viewSignIn, viewDashboard, viewCourses };

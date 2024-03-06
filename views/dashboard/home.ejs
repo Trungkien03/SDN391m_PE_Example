@@ -19,17 +19,12 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                    <h3 class="text-primary"><i class="bi bi-house-gear-fill me-2"></i>DASHMIN</h3>
                 </a>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/view/dashboard" class="nav-item nav-link active"><i class="fa fa-home me-2" aria-hidden="true"></i> Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Courses</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="" class="dropdown-item">Buttons</a>
-                            <a href="" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a>
-                        </div>
+                        <a href="/view/dashboard/courses" class="nav-item nav-link" ><i class="fa fa-laptop me-2"></i> Courses</a>
                     </div>
                 </div>
             </nav>
@@ -103,13 +98,57 @@
             </div>
             <!-- Sale & Revenue End -->
 
+
+            <!-- Create Sections -->
+
+
+            <div class="modal fade" id="createSection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add New Section</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form method="post" action="/course/create">
+        
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label for="sectionName">Section Name</label>
+                          <input type="text" class="form-control" name="courseName" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="sectionDescription">Section Description</label>
+                          <textarea name="courseDescription" class="form-control" id="exampleFormControlTextarea1" rows="4" required placeholder="Enter Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="sectionName">Section Duration</label>
+                          <input type="number" class="form-control" name="courseImage" placeholder="Input Duration" required>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                      </div>
+                    </form>
+        
+                  </div>
+                </div>
+              </div>
+
              <!-- Recent Sales Start -->
              <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">List of Sections</h6>
+                        <div style="display: flex; justify-content: space-around; align-items: center;">
+                          <h6 class="mb-0">List of Sections</h6>
+                          <button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#createSection">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i> Add Section
+                          </button>
+                        </div>
                         <a href="">Show All</a>
-                    </div>
+                      </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <% if (typeof messageFail !== 'undefined') { %>
