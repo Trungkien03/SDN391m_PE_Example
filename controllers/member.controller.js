@@ -35,19 +35,25 @@ const signIn = catchAsync(async (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return res.status(400).render('authentication/signIn', { message: 'Username and password are required' });
+    return res
+      .status(400)
+      .render('authentication/signIn', { message: 'Username and password are required', title: 'Sign In Page' });
   }
 
   const existingMember = await member.findOne({ username });
 
   if (!existingMember) {
-    return res.status(401).render('authentication/signIn', { message: 'Invalid username or password' });
+    return res
+      .status(401)
+      .render('authentication/signIn', { message: 'Invalid username or password', title: 'Sign In Page' });
   }
 
   const passwordMatch = await bcrypt.compare(password, existingMember.password);
 
   if (!passwordMatch) {
-    return res.status(401).render('authentication/signIn', { message: 'Invalid username or password' });
+    return res
+      .status(401)
+      .render('authentication/signIn', { message: 'Invalid username or password', title: 'Sign In Page' });
   }
 
   // Generate token
