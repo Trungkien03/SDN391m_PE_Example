@@ -5,15 +5,13 @@ const Course = require('../models/course.model');
 const Member = require('../models/member.model');
 const Section = require('../models/section.model');
 
-dotenv.config({ path: './config.env' });
+dotenv.config();
 
-console.log('DATABASE:', process.env.DATABASE);
+console.log('DATABASE:', process.env.DATABASE_LOCAL);
 
 mongoose
-  .connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-  })
-  .then((con) => {
+  .connect(process.env.DATABASE_LOCAL, { dbName: 'PE_SDN301m_TrialTest_SE161079DB' })
+  .then(() => {
     console.log('Connected to MongoDB');
   })
   .catch((error) => {
@@ -27,9 +25,9 @@ const sections = JSON.parse(fs.readFileSync(`${__dirname}/sections.json`, 'utf-8
 
 const importData = async () => {
   try {
-    await Course.create(courses);
+    await Course.create(courses, { validateBeforeSave: false });
     await Member.create(members, { validateBeforeSave: false });
-    await Section.create(sections);
+    await Section.create(sections, { validateBeforeSave: false });
     console.log('Data successfully loaded');
     process.exit();
   } catch (error) {
