@@ -55,7 +55,7 @@
               <span class="d-none d-lg-inline-flex">Nguyen Trung Kien</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-              <a href="/member/logout" class="dropdown-item">Log Out</a>
+              <a href="/view/member/logout" class="dropdown-item">Log Out</a>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form method="post" action="/course/create">
+            <form method="post" action="/view/course/create">
 
               <div class="modal-body">
                 <div class="form-group">
@@ -161,7 +161,7 @@
                         </div>
                         <div class="w-100 p-4">
                           <h4>Course</h4>
-                          <form method="post" action="/course/update">
+                          <form method="post" action="/view/course/update">
                             <input name="courseId" type="hidden" value="<%= course._id %>">
                             <div class="form-group">
                               <label for="sectionName">Course Name</label>
@@ -202,7 +202,7 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                        <a href="/course/delete/<%= course._id %>" class="btn btn-primary">Yes</a>
+                        <a href="/view/course/delete/<%= course._id %>" class="btn btn-primary">Yes</a>
                       </div>
                     </div>
                   </div>

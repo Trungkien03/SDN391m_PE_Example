@@ -2,7 +2,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const routes = require('./routes');
+const routes = require('./routes/view');
+const apiRoutes = require('./routes/api');
 
 const app = express();
 
@@ -18,7 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', routes);
+app.use('/view', routes);
+app.use('/api', apiRoutes);
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

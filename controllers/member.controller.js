@@ -90,4 +90,56 @@ const logout = catchAsync(async (req, res, next) => {
   res.status(200).render('authentication/signIn', { message: 'Logout Successfully!', title: 'Sign In Page' });
 });
 
-module.exports = { signUp, signIn, logout };
+const signInApi = async (req, res, next) => {
+  try {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+      return res
+        .status(400)
+        .render('authentication/signIn', { message: 'Username and password are required', title: 'Sign In Page' });
+    }
+
+    const existingMember = await member.findOne({ username });
+
+    if (!existingMember) {
+      return res
+        .status(401)
+        .render('authentication/signIn', { message: 'Invalid username or password', title: 'Sign In Page' });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, existingMember.password);
+
+    if (!passwordMatch) {
+      return res
+        .status(401)
+        .render('authentication/signIn', { message: 'Invalid username or password', title: 'Sign In Page' });
+    }
+
+    // Generate token
+    const token = jwt.sign({ existingMember }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    });
+
+    // Set token in cookie
+    res.cookie('jwt', token, {
+      expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
+      httpOnly: true,
+      secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
+    });
+
+    res.status(200).json({
+      message: 'Sign In successfully',
+      data: {
+        token,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: 'Sign In Fail',
+      data: error.message,
+    });
+  }
+};
+
+module.exports = { signUp, signIn, logout, signInApi };

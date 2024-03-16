@@ -1,5 +1,5 @@
 const express = require('express');
-const { viewSignUp, viewSignIn, viewDashboard, viewCourses } = require('../../controllers/view.controller');
+const { viewSignUp, viewSignIn, viewDashboard, viewCourses } = require('../../../controllers/view.controller');
 
 const viewRouters = express.Router();
 

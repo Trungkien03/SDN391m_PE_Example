@@ -23,14 +23,6 @@ mongoose
     console.error('Error connecting to MongoDB:', error);
   });
 
-const server = app.listen(port || 4000, () => {
+app.listen(port || 4000, () => {
   console.log(`App running on port ${port}....`);
-});
-
-process.on('unhandledRejection', (err) => {
-  console.log('UNHANDLED REJECTION! 💥 Shutting down...');
-  console.log(err.name, err.message);
-  server.close(() => {
-    process.exit(1);
-  });
 });

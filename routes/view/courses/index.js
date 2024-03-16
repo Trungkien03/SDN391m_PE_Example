@@ -1,5 +1,5 @@
 const express = require('express');
-const { createCourse, deleteCourse, updateCourse } = require('../../controllers/course.controller');
+const { createCourse, deleteCourse, updateCourse } = require('../../../controllers/course.controller');
 
 const courseRouter = express.Router();
 

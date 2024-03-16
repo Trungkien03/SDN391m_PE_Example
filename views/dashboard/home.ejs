@@ -51,11 +51,11 @@
 
           <div class="nav-item dropdown">
             <a href="#" class="nav-link" data-bs-toggle="dropdown">
-              <img class="rounded-circle me-lg-2" src="https://scontent.fhan3-1.fna.fbcdn.net/v/t39.30808-6/273280810_3317577035194696_6778832758339916691_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFOGuvJUZQAhZ9HpuX9vN7iTXzBYCKd98VNfMFgIp33xYacfQASpG-KhZ0cAbKLt7KAfIVim6CVX-dVgIKhCcx3&_nc_ohc=dZbg9IWFPOEAX9rEnFH&_nc_ht=scontent.fhan3-1.fna&oh=00_AfCyra36p8EC83gOvingtRuwBjsyje4EePafrkxYvXXDlA&oe=65EA4AD7" alt="" style="width: 40px; height: 40px;">
+              <img class="rounded-circle me-lg-2" src="/img/kien.jpg" alt="" style="width: 35px; height: 40px;">
               <span class="d-none d-lg-inline-flex">Nguyen Trung Kien</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-              <a href="/member/logout" class="dropdown-item">Log Out</a>
+              <a href="/view/member/logout" class="dropdown-item">Log Out</a>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form method="post" action="/section/create">
+            <form method="post" action="/view/section/create">
 
               <div class="modal-body">
                 <div class="form-group">
@@ -141,8 +141,7 @@
                   <input name="isMainTask" type="checkbox" class="custom-control-input" id="customCheckDisabled1">
                   <label class="custom-control-label" for="customCheckDisabled1">Is Main Task</label>
                 </div>
-              </div>
-
+              </div>             
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -222,7 +221,7 @@
                         </div>
                         <div class="w-100 p-4">
                           <h4>Section</h4>
-                          <form method="post" action="/section/update">
+                          <form method="post" action="/view/section/update">
                             <input name="sectionId" type="hidden" value="<%= section._id %>">
                             <div class="form-group">
                               <label for="sectionName">Section Name</label>
@@ -265,10 +264,13 @@
                       <div class="modal-body">
                         <h6>Confirm Delete Section <%= section.sectionName %></h6>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary">Yes</button>
-                      </div>
+                      <form method="post" action="/view/section/delete/<%= section.id %>">
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                          <button type="submit" class="btn btn-primary">Yes</button>
+                        </div>
+                      </form>
+
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ const courseRouter = require('./courses');
 
 const router = express.Router();
 
-router.use('/view', viewRouters);
+router.use('/', viewRouters);
 router.use('/member', memberRouter);
 router.use('/section', sectionRouter);
 router.use('/course', courseRouter);
