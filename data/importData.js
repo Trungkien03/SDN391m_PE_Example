@@ -18,16 +18,15 @@ mongoose
     console.error('Error connecting to MongoDB:', error);
   });
 
-//READ JSON FILE
 const courses = JSON.parse(fs.readFileSync(`${__dirname}/courses.json`, 'utf-8'));
 const members = JSON.parse(fs.readFileSync(`${__dirname}/members.json`, 'utf-8'));
 const sections = JSON.parse(fs.readFileSync(`${__dirname}/sections.json`, 'utf-8'));
 
 const importData = async () => {
   try {
-    await Course.create(courses, { validateBeforeSave: false });
-    await Member.create(members, { validateBeforeSave: false });
-    await Section.create(sections, { validateBeforeSave: false });
+    await Course.create(courses);
+    await Section.create(sections);
+    await Member.create(members);
     console.log('Data successfully loaded');
     process.exit();
   } catch (error) {

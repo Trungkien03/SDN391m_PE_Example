@@ -6,15 +6,7 @@ const memberSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    fullName: {
-      type: String,
-      required: true,
-    },
     password: {
-      type: String,
-      required: true,
-    },
-    imageUrl: {
       type: String,
       required: true,
     },

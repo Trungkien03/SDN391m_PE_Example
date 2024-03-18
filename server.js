@@ -16,7 +16,7 @@ process.on('uncaughtException', (err) => {
 
 mongoose
   .connect(process.env.DATABASE_LOCAL, { dbName: 'PE_SDN301m_TrialTest_SE161079DB' })
-  .then(() => {
+  .then(async () => {
     console.log('Connected to MongoDB');
   })
   .catch((error) => {
